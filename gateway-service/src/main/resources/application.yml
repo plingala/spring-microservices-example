@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: GATEWAY-SERVICE
+server:
+  port: 9093
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+zuul: 
+  routes:
+    auth:
+      path: /auth/**
+      serviceId: AUTH-SERVICE
+    secured: 
+      path: /api/secured/**
+      serviceId: SECURED-SERVICE
+    nonsecured: 
+      path: /nonsecured/**
+      serviceId: NON-SECURED-SERVICE

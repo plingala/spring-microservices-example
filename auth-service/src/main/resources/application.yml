@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: AUTH-SERVICE
+server: 
+  port: 9090
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+org.plingala.auth.jwt.token-signing-key: $!xeSB!T+P5sQ85QTIH0GAR+#x6LGST3*=DF6#*aW&10zy9cWTV9Z*1v&1lKNEJp

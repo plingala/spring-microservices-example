@@ -1,0 +1,28 @@
+discovery:
+  image: plingala/discovery-server
+  ports:
+  - 8761:8761
+auth:
+  image: plingala/auth-service
+  ports:
+  - 9090:9090
+  links:
+  - discovery
+gateway: 
+  image: plingala/gateway-service
+  ports:
+  - 9093:9093
+  links:
+  - discovery
+secured:
+  image: plingala/secured-service
+  ports:
+  - 9092:9092
+  links:
+  - discovery
+nonsecured: 
+  image: plingala/non-secured-service
+  ports:
+  - 9091:9091
+  links:
+  - discovery
